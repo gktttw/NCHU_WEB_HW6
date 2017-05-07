@@ -1,0 +1,14 @@
+body {
+        background-image: url("http://images.all-free-download.com/images/graphiclarge/abstract_smooth_wave_background_vector_grapihic_art_569579.jpg");
+	background-size: 100%;
+}
+div {
+	margin-top:90px; 
+	margin-left:auto; 
+	margin-right:auto; 
+	margin-bottom:auto; 
+    border: 5px  dashed #FFAC55;
+	padding: 5px;
+    width: 30%;
+	text-align:center;
+   }
