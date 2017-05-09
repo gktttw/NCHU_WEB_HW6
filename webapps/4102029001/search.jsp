@@ -8,16 +8,25 @@
 	ResultSet rs = null;
 	stmt = con.createStatement();
 
-	String query = "SELECT * FROM mytable WHERE name='" + name + "' AND password='" + password + "';";
+	String query = "SELECT * FROM mytable";
 	stmt.executeQuery(query);
 	rs = stmt.getResultSet();
-	if (rs.first()){
+	
+	if(rs != null){
 		result = "login successfully";
 		result += "<br />";
 		result += "<center><table class='table table-hover'>";
-		result += "<tr><td>birthday</td><td>" + rs.getString("birthday") + "</td></tr>";
-
-		result += "<tr><td>memo</td><td>" + rs.getString("memo") + "</td></tr></table></center>";
+		result += "<tr><th>Userid</th><th>name</th><th>password</th><th>birthday</th><th>memo</th></tr>";
+		while (rs.next()){
+		
+		result += "<tr><td>" + rs.getInt("Userid") + "</td>";
+		result += "<td>" + rs.getString("name") + "</td>";
+		result += "<td>" + rs.getString("password") + "</td>";
+		result += "<td>" + rs.getString("birthday") + "</td>";
+		result += "<td>" + rs.getString("memo") + "</td></tr>";
+	
+	}
+	result += "</table></center>";
 	}else{
 		result = "wrong name or password!<br/>return home after 3 seconds! ";
 		response.setHeader("Refresh" , "3;url=home.jsp");
@@ -30,11 +39,11 @@
 <html>
 <head>
 
-    <!-- 最新編譯和最佳化的 CSS -->
+    <!-- �̷s�sĶ�M�̨Τƪ� CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<!-- 選擇性佈景主題 -->
+<!-- ��ܩʧG���D�D -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-<!-- 最新編譯和最佳化的 JavaScript -->
+<!-- �̷s�sĶ�M�̨Τƪ� JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -43,7 +52,7 @@
 </head>
 <body>
 <div>
-<h1><%=result%></h1>
+<%=result%>
 </div>
 </body>
 </html>

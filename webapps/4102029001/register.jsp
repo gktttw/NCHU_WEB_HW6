@@ -12,10 +12,10 @@
 	<form action="insert.jsp" method="POST">
 		<br/>
 		<h1>註冊</h1><br/><br/>
-		User name:<input type="text" name="name"/><br/><br/>
-		password:<input type="password" name="password"/><br/><br/>
-		birthday:<input type="date" name="birthday"/><br/><br/>
-		memo:<input type="text" name="memo"/><br/><br/>
+		User name:<input type="text" name="name" required/><br/><br/>
+		password:<input type="password" name="password" required><br/><br/>
+		birthday:<input type="date" name="birthday" required/><br/><br/>
+		memo:<input type="text" name="memo" required/><br/><br/>
 		
 		<input type="submit" value="提交" />
 	</form>
