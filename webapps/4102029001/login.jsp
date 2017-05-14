@@ -14,29 +14,20 @@
 	if (rs.first()){
 		result = "login successfully";
 		result += "<br />";
-		result += "<center><table class='table table-hover'>";
-		result += "<tr><td>birthday</td><td>" + rs.getString("birthday") + "</td></tr>";
-
-		result += "<tr><td>memo</td><td>" + rs.getString("memo") + "</td></tr></table></center>";
+		result += "birthday: " + rs.getString("birthday");
+		result += "<br />";
+		result += "memo: " + rs.getString("memo");
 	}else{
 		result = "wrong name or password!<br/>return home after 3 seconds! ";
 		response.setHeader("Refresh" , "3;url=home.jsp");
 	}
-	rs.close();
 	stmt.close();
+	rs.close();
 	con.close();
 %>
 <!DOCTYPE html>
 <html>
 <head>
-
-    <!-- 最新編譯和最佳化的 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<!-- 選擇性佈景主題 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-<!-- 最新編譯和最佳化的 JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <link rel="stylesheet" type="text/css" href="mystyle.css">
@@ -44,6 +35,23 @@
 <body>
 <div>
 <h1><%=result%></h1>
+<form action="search.jsp" method="POST">
+<input type="hidden" value="x" name="x">
+	<SELECT name="month" size=1>
+		<OPTION value = 1 >1</OPTION>
+		<OPTION value = 2 >2</OPTION>
+		<OPTION value = 3 >3</OPTION>
+		<OPTION value = 4 >4</OPTION>
+		<OPTION value = 5 >5</OPTION>
+		<OPTION value = 6 >6</OPTION>
+		<OPTION value = 7 >7</OPTION>
+		<OPTION value = 8 >8</OPTION>
+		<OPTION value = 9 >9</OPTION>
+		<OPTION value = 10 >10</OPTION>
+		<OPTION value = 11 >11</OPTION>
+		<OPTION value = 12 >12</OPTION>
+	</SELECT><input type="submit" value="搜尋月分">
+</form>
 </div>
 </body>
 </html>

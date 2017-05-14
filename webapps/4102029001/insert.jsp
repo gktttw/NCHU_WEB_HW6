@@ -31,6 +31,10 @@
 		response.setHeader("Refresh" , "3;url=home.jsp");
 		
 	}
+	stmt.close();
+	rs.close();
+	pstmt.close();
+	con.close();
 %>
 <!DOCTYPE html>
 <html>
